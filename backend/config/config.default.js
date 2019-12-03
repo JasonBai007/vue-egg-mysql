@@ -18,7 +18,7 @@ module.exports = appInfo => {
   // add your middleware config here
   config.middleware = [];
 
-  //多出来的配置==========
+  // 关闭CSRF
   // config.security = {
   //   csrf: {
   //     enable: false,
@@ -26,6 +26,8 @@ module.exports = appInfo => {
   //   },
   //   domainWhiteList: ["http://localhost:8080"]
   // };
+
+  // 开启CORS
   config.cors = {
     origin: "*",
     allowMethods: "GET,HEAD,PUT,POST,DELETE,PATCH"
