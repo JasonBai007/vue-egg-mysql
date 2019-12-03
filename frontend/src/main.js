@@ -1,8 +1,14 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from "vue";
+import App from "./App.vue";
+const axios = require("axios");
 
-Vue.config.productionTip = false
+Vue.prototype.$axios = axios;
+
+// axios.defaults.baseURL = 'http://127.0.0.1:7001/api/v1';
+axios.defaults.baseURL = 'http://localhost:7001/api/v1';
+
+Vue.config.productionTip = false;
 
 new Vue({
-  render: h => h(App),
-}).$mount('#app')
+  render: h => h(App)
+}).$mount("#app");

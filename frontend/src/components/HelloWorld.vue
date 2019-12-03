@@ -15,41 +15,20 @@ export default {
   },
   data() {
     return {
-      websock: null,
-      wsUrl: "ws://127.0.0.1:3001",
       resArr: []
     };
   },
   created() {
-    this.initWebSocket();
-  },
-  beforeDestroy() {
-    this.websock.close(); //离开路由之后断开websocket连接
+    this.getList();
   },
   methods: {
-    initWebSocket() {
-      //初始化weosocket
-      this.websock = new WebSocket(this.wsUrl);
-      this.websock.onopen = this.websocketonopen;
-      this.websock.onmessage = this.websocketonmessage;
-      this.websock.onerror = this.websocketonerror;
-      this.websock.onclose = this.websocketclose;
-    },
-    websocketonopen() {
-      //连接建立之后执行send方法发送数据
-      this.websock.send("后端，开门！");
-    },
-    websocketonerror() {
-      //连接建立失败重连
-      this.initWebSocket();
-    },
-    websocketonmessage(e) {
-      //数据接收
-      this.resArr.push(e.data);
-    },
-    websocketclose(e) {
-      //关闭
-      console.log("断开连接", e);
+    getList() {
+      this.$axios.get("getList").then(res => {
+        console.log(res);
+      });
+      this.$axios.get("http://127.0.0.1:7001").then(res => {
+        console.log(res);
+      });
     }
   }
 };
