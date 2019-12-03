@@ -1,21 +1,17 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
     <ul>
-      <li v-for="(item,index) in resArr" :key="index">{{item}}</li>
+      <li v-for="(item,index) in itemArr" :key="index">{{item.name}}</li>
     </ul>
   </div>
 </template>
 
 <script>
 export default {
-  name: "HelloWorld",
-  props: {
-    msg: String
-  },
+  name: "list",
   data() {
     return {
-      resArr: []
+      itemArr: []
     };
   },
   created() {
@@ -24,10 +20,7 @@ export default {
   methods: {
     getList() {
       this.$axios.get("getList").then(res => {
-        console.log(res);
-      });
-      this.$axios.get("http://127.0.0.1:7001").then(res => {
-        console.log(res);
+        this.itemArr = res.data;
       });
     }
   }
@@ -36,9 +29,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-h3 {
-  margin: 40px 0 0;
-}
 ul {
   width: 20vw;
   padding: 0;

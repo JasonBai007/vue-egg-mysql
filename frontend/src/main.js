@@ -3,8 +3,6 @@ import App from "./App.vue";
 const axios = require("axios");
 
 Vue.prototype.$axios = axios;
-
-// axios.defaults.baseURL = 'http://127.0.0.1:7001/api/v1';
 axios.defaults.baseURL = 'http://localhost:7001/api/v1';
 
 Vue.config.productionTip = false;
