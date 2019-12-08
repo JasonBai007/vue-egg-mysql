@@ -19,13 +19,13 @@ module.exports = appInfo => {
   config.middleware = [];
 
   // 关闭CSRF
-  // config.security = {
-  //   csrf: {
-  //     enable: false,
-  //     ignoreJSON: true
-  //   },
-  //   domainWhiteList: ["http://localhost:8080"]
-  // };
+  config.security = {
+    csrf: {
+      enable: false,
+      ignoreJSON: true
+    },
+    domainWhiteList: ["http://localhost:8080"]
+  };
 
   // 开启CORS
   config.cors = {

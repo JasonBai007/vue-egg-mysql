@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
+    <input type="text" v-model="val" @keyup.enter="addOne" />
     <List />
   </div>
 </template>
@@ -12,6 +12,18 @@ export default {
   name: "app",
   components: {
     List
+  },
+  data() {
+    return {
+      val: ""
+    };
+  },
+  methods: {
+    addOne() {
+      this.$axios.post("add", { val: this.val }).then(res => {
+        console.log(res);
+      });
+    }
   }
 };
 </script>
