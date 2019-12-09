@@ -7,7 +7,6 @@ class UpdateService extends Service {
     const one = await this.ctx.model.List.findByPk(id);
     await one.update({
       name: name,
-      created_at: now,
       updated_at: now
     });
   }
