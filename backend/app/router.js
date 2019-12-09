@@ -8,4 +8,5 @@ module.exports = app => {
   const base = "/api/v1/";
   router.get(`${base}getList`, controller.list.index);
   router.post(`${base}add`, controller.list.create);
+  router.delete(`${base}delete/:id`, controller.list.delete);
 };
