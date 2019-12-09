@@ -6,23 +6,13 @@ class ListController extends Controller {
   async index() {
     const { ctx } = this;
     ctx.body = await ctx.service.list.find();
-    // ctx.body = [
-    //   {
-    //     name: "事务1",
-    //     id: 0,
-    //     isDone: true
-    //   },
-    //   {
-    //     name: "事务2",
-    //     id: 1,
-    //     isDone: false
-    //   },
-    //   {
-    //     name: "事务3",
-    //     id: 2,
-    //     isDone: false
-    //   }
-    // ];
+  }
+
+  async create() {
+    const { ctx } = this;
+    const { val } = ctx.request.body;
+    ctx.status = 201;
+    ctx.body = await ctx.service.add.addOne(val);
   }
 }
 
