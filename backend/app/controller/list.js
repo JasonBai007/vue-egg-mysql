@@ -15,10 +15,16 @@ class ListController extends Controller {
     ctx.status = 201;
     ctx.body = await ctx.service.add.addOne(val);
   }
+  // 更新一条数据
+  async update() {
+    const { ctx } = this;
+    await ctx.service.update.updateOne(ctx.params.id, ctx.request.body.val);
+    ctx.status = 200;
+  }
   // 删除一条数据
   async delete() {
     const { ctx } = this;
-    await ctx.service.delete.delete(ctx.params.id);
+    await ctx.service.delete.deleteOne(ctx.params.id);
     ctx.status = 200;
   }
 }

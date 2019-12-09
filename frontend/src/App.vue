@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <input type="text" v-model="val" @keyup.enter="addOne" />
-    <List ref="list" />
+    <input type="text" v-model="val" @keyup.enter="sendOne" />
+    <List ref="list" @editThisOne="edit" />
   </div>
 </template>
 
@@ -15,15 +15,33 @@ export default {
   },
   data() {
     return {
-      val: ""
+      val: "",
+      editId: "",
+      isEdit: false
     };
   },
   methods: {
-    addOne() {
-      this.$axios.post("add", { val: this.val }).then(res => {
-        this.val = "";
-        this.$refs.list.getList();
-      });
+    sendOne() {
+      // 如果是编辑项目
+      if (this.isEdit) {
+        this.$axios.post(`edit/${this.editId}`, { val: this.val }).then(res => {
+          this.val = "";
+          this.$refs.list.getList();
+        });
+      } else {
+        this.$axios.post("add", { val: this.val }).then(res => {
+          this.val = "";
+          this.$refs.list.getList();
+        });
+      }
+      // 无论是编辑还是新建，都重置成新建
+      this.isEdit = false;
+    },
+    // 拿到要编辑的对象
+    edit(one) {
+      this.val = one.name;
+      this.editId = one.id;
+      this.isEdit = true;
     }
   }
 };
@@ -38,7 +56,7 @@ export default {
   margin-top: 60px;
   input {
     margin-left: 23px;
-    width: 15vw;
+    width: calc(100vw - 62px);
   }
 }
 </style>

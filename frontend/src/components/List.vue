@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <ol>
-      <li v-for="(item,index) in itemArr" :key="index">
+      <li v-for="(item,index) in itemArr" :key="index" @dblclick="edit(item)">
         {{item.name}}
         <span @click="del(item.id)">X</span>
       </li>
@@ -24,6 +24,10 @@ export default {
     async getList() {
       const res = await this.$axios.get("getList");
       this.itemArr = res.data.data;
+    },
+
+    async edit(item) {
+      this.$emit("editThisOne", item);
     },
 
     async del(id) {
