@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img src="@/assets/bg.jpg" alt />
-    <input type="text" v-model="val" @keyup.enter="sendOne" />
+    <input type="text" v-model="val" @keyup.enter="sendOne" placeholder="I what to do" />
     <List ref="list" @editThisOne="edit" />
   </div>
 </template>
@@ -49,20 +49,20 @@ export default {
 </script>
 
 <style scoped lang="less">
+.paper {
+  min-height: 92vh;
+}
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
   margin-top: 20px;
   img {
     width: 250px;
     display: block;
-    margin: 0 auto;
+    margin: 0 auto 10px;
+    border: none;
   }
   input {
-    margin-left: 23px;
-    width: calc(100vw - 62px);
+    width: 84vw;
+    margin: 0 auto;
   }
 }
 </style>

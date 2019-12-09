@@ -1,12 +1,10 @@
 <template>
-  <div class="hello">
-    <ol>
-      <li v-for="(item,index) in itemArr" :key="index" @dblclick="edit(item)">
-        {{item.name}}
-        <span @click="del(item.id)">X</span>
-      </li>
-    </ol>
-  </div>
+  <ol>
+    <li v-for="(item,index) in itemArr" :key="index" @dblclick="edit(item)">
+      {{item.name}}
+      <span @click="del(item.id)" class="text-danger">X</span>
+    </li>
+  </ol>
 </template>
 
 <script>
@@ -41,29 +39,19 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
 ol {
-  margin: 10px 0;
+  padding-left: 8vw;
   line-height: 2;
+  margin-right: 8vw;
   li {
     text-align: left;
-    width: calc(100vw - 75px);
     &:hover {
-      background: #e0eafc; /* fallback for old browsers */
-      background: -webkit-linear-gradient(
-        to right,
-        #cfdef3,
-        #e0eafc
-      ); /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(
-        to right,
-        #cfdef3,
-        #e0eafc
-      ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      cursor: pointer;
+      font-weight: bold;
     }
     span {
       float: right;
       padding-right: 2px;
       &:hover {
-        color: red;
         font-weight: bold;
         cursor: pointer;
       }
