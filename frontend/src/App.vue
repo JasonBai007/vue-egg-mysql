@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <img src="@/assets/bg.jpg" alt />
     <input type="text" v-model="val" @keyup.enter="sendOne" />
     <List ref="list" @editThisOne="edit" />
   </div>
@@ -53,7 +54,12 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 20px;
+  img {
+    width: 250px;
+    display: block;
+    margin: 0 auto;
+  }
   input {
     margin-left: 23px;
     width: calc(100vw - 62px);

@@ -45,6 +45,7 @@ ol {
   line-height: 2;
   li {
     text-align: left;
+    width: calc(100vw - 75px);
     &:hover {
       background: #e0eafc; /* fallback for old browsers */
       background: -webkit-linear-gradient(
@@ -60,7 +61,7 @@ ol {
     }
     span {
       float: right;
-      padding-right: 20px;
+      padding-right: 2px;
       &:hover {
         color: red;
         font-weight: bold;
