@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <input type="text" v-model="val" @keyup.enter="addOne" />
-    <List />
+    <List ref="list" />
   </div>
 </template>
 
@@ -21,20 +21,24 @@ export default {
   methods: {
     addOne() {
       this.$axios.post("add", { val: this.val }).then(res => {
-        console.log(res);
+        this.val = "";
+        this.$refs.list.getList();
       });
     }
   }
 };
 </script>
 
-<style lang="less">
+<style scoped lang="less">
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  input {
+    margin-left: 23px;
+    width: 15vw;
+  }
 }
 </style>
