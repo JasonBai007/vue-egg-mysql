@@ -20,7 +20,7 @@ export default {
   methods: {
     async getList() {
       const res = await this.$axios.get("getList");
-      this.itemArr = res.data;
+      this.itemArr = res.data.data;
     }
   }
 };

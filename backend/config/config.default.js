@@ -16,7 +16,7 @@ module.exports = appInfo => {
   config.keys = appInfo.name + "_1575256567325_1391";
 
   // add your middleware config here
-  config.middleware = [];
+  config.middleware = ['formatoutput'];
 
   // 关闭CSRF
   config.security = {
