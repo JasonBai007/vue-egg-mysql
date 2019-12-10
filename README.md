@@ -5,5 +5,5 @@ practise egg、sequelize and mysql.
 ```
 sh start.sh
 ```
-
+## Preview Screenshot
 ![img](https://github.com/jasonBai007/vue-egg-mysql/raw/master/preview.png)
