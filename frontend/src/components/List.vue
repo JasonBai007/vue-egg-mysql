@@ -1,6 +1,6 @@
 <template>
   <ol>
-    <li v-for="(item,index) in itemArr" :key="index" @dblclick="edit(item)">
+    <li v-for="(item,index) in itemArr" :key="index" @contextmenu.prevent="edit(item)">
       {{item.name}}
       <span @click="del(item.id)" class="text-danger">X</span>
     </li>

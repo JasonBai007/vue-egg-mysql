@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img src="@/assets/bg.jpg" alt />
-    <input type="text" v-model="val" @keyup.enter="sendOne" placeholder="I what to do" />
+    <input type="text" v-model="val" @keyup.enter="sendOne" placeholder="I am going to do" />
     <List ref="list" @editThisOne="edit" />
   </div>
 </template>
